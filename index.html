@@ -38,6 +38,16 @@
 			Ability Score <input type="number" step="any" id="a" value="0">
 			<output name="x" step="any" for="a">0</output> Z Score
 		</form>
+		<form oninput="y.value=(15*(parseFloat(c.value)*((parseFloat(a.value)-100)/15))+100)">
+			Correlation <input type="number" step="any" id="c" value="0">
+			<output name="y" step="any" for="c a">0</output> Predicted Acheivement
+		</form>
+		<form oninput="z.value=(1.96 * 15 * (Math.sqrt((1 - Math.pow(c.value,2))))) - (1.65 * (15 * (Math.sqrt(1 - (Math.pow(c.value, 2)))) * (Math.sqrt(1 - ((parseFloat(d.value)) + ((parseFloat(e.value)) * Math.pow(c.value, 2))-(2 * Math.pow(c.value, 2))) / (1 - Math.pow(c.value, 2))))))">
+			Correlation <input type="number" step="any" id="c" value="1"> 
+			Reliability of Ability Score <input type="number" step="any" id="d" value="1">
+			Reliability of Acheivement Score <input type="number" step="any" id="e" value="1"> 
+			<output name="z" step="any" for="c d e" >0</output> Magnitude of Difference required at .05 level
+		</form>
 		<!--<form oninput="x.value=parseFloat(a.value)+parseFloat(b.value)">
 			<input type="number" step="any" id="a" value="50.5">
 			+<input type="number" step="any" id="b" value="50.5">
